@@ -104,10 +104,6 @@ The next step involved is binding the netlist with physical cells. A library is 
 now the binded physical cells need to be placed inside the core. the placement is determined by the position of the input pins and the frequency of operation of the block as well. Consider a netlist operating at a very high frequency, naturally to preserve the high frequency of operation the cells must be placed very close to each other.other netlists can have regular gaps between them to avoid timing violations. if the distance between the Input/Output pins to the input or output of the netlist is more, then to preserve the signal integrity - buffers/repeaters can be added at even spacings along the path of the netlist. 
 
 
-## Labs
-
-# Day 3
-
 ## Cell Design Flow
 As seen earlier, Libraries contain standard cells which are binded to the netlist generated. The libary contains cells with different logic functions, different sizes and different threshold voltages. Apart from this, custom cells can also be created for which the process is mentioned below.
 
@@ -150,4 +146,42 @@ Propagation Delay is a measure of time taken by the signal to pass through a gat
 Transistion time is the time needed for a signal to pass from 10% to 90% or from 20% to 80% of its final state. The delay of a cell can be deduced from the standard cell library, it is a function of input transition time and output capacitance load.The input and output slew can be found using ngspice waveforms by locating the 20% and 80% points and subtracting them
 
 
- 
+## Labs
+
+# Day 3
+
+## ngspice Inverter Simulation
+Inverter model was created as a spice deck and simulations were run on the model.ngspice was used to obtain the transfer characteristics(Input voltage vs Output Voltage) and transient analysis (Input and Output Voltage vs Time). Different delay parameters were calculated using the plots obtained from ngspice. 
+
+## Euler's Path and Stick Diagram
+As discussed earlier, Euler's Path provides an improved stick diagram and subsequently the layout. Euler's path provides the order in which the inputs are to be arranged in the final layout. A non-euler based design and euler path based design for a same logic function was performed and it proved that using Euler's path provides lesser congestion between the metal layers and more optimised layout.
+
+## Post-Layout extraction and Simulation
+The layout can be drawn manually through Magic layout tool or can be automated with the help of scripts written in tcl.Once the layout is complete, the input nets are labelled by clicking on the gates followed by post layout extraction. Post layout extraction of SPICE model gives more insights regarding the parasitics that occur after creating the layout. the spice deck is run and the plots are looked again to verify that there is some difference between the pre-layout and the post layout simulations.
+
+## CMOS Fabrication Process
+16-Mask CMOS Process summary: 
+* Selecting a substrate. 
+* Creating active region for transistors
+* N-Well and P-Well formation
+* Formation of ‘gate'
+* Lightly doped drain(LDD) formation
+* Source and drain formation
+* Steps to form contacts and interconnects(local)
+* Higher level metal formation
+
+## Labs
+
+# Day 4
+
+## Timing modelling using delay tables
+
+## Timing analysis with ideal clocks
+
+## Clock Tree synthesis
+
+## Timing analysis with real clocks
+
+# Day 5
+
+## Final Steps for RTL2GDS
