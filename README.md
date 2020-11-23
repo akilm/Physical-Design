@@ -1,12 +1,6 @@
 # Physical design using open-source EDA Tools
 This Repository contains all the information needed for physical design flow for your IPs or SOCs using qflow and other opensource tools. The Repository was created during the Beginner Physical design using open-source EDA Tools conducted by Kunal Ghosh - [(VLSI System Design)](https://www.vlsisystemdesign.com/).
 
-# Contents
-1. Day 1 : IC Design Components and Terminologies, RISC-V, Physical Design Flow and Open source EDA tools
-
-
-
-
 # Day-1
 # IC Design Components and Terminologies
 **IC** or **Integrated circuit** is basically an electronic circuit consisting of large number of transistors, resistors and capacitors etc inside a single semiconductor chip. They come in a variety of packages and sizes. Some of the commonly used ICs include Timer 555 ic, 741 operational amplifiers, 78xx series of voltage regulators and 74xx series of logic gates.<br/>
@@ -175,13 +169,37 @@ The layout can be drawn manually through Magic layout tool or can be automated w
 # Day 4
 
 ## Timing modelling using delay tables
+delay tables are tables which represent the delay of a gate as a function of input slew and output capacitance. As discussed before many standards cells of different sizes would be present in the library. to calculate the propagation delay across these cells, the delay table is used. if a value for a particular output load and an input slew is not present in the table, it is usually extrapolated from the nearby values present in the table. A typical delay table looks like the one given below
 
-## Timing analysis with ideal clocks
 
 ## Clock Tree synthesis
+Clock Tree synthesis is the next step after placement. Clock signals cannot be routed in the same way other data signals are routed because all the sequential elements in a particular stage expect the clock edges at the same time, in other words the clock skew should be zero.To achieve this clocks are routed in a h-tree fashion, instead of directly connecting the clk pins to the clk input of the sequential elements. Also at every level of the clock path , the load driven must be same inorder to ensure synchronous working of all the cells. this is maintained by using same type of buffer cells throughout a particular stage.
 
-## Timing analysis with real clocks
+## Timing analysis with real and ideal clocks
+Static timing analysis determines whether there is any setup or hold violations in the circuit. With ideal clocks, the analysis becomes easy, since the clk arrival time is definite and not subject to change. but in real scenarios, clk signals have noise and some uncertainity associated with it due to a variety of factors. Clock shielding can be done to prevent the noise impact on the clk signals.
+
+## Labs
 
 # Day 5
 
+## Routing
+One of the most popular routing algorithm called Lee's algorithm or maze routing was explained during the workshop. The process starts from the driver and all the surrounding grids to the driver cell are numbered 1. then all the adjacent cells to cells numbered 1 are numbered as 2 and this process is repeated until the target grid is reached. now, there may be multiple paths between the source to the destination, but the one with the least number of bends is preferred .
+
+## DRC 
+Some rules regarding the metal layers need to be followed carefully to avoid DRC failure. Consider a pair of wires in the same metal layer,they are expected to maintain a minimum width, pitch and spacing between them. Two wires from different source to different destination should not intersect in the same metal layer. they have to be separated into different metal layers to avoid shorting. while doing so, rules like the specified Via Width and Via Spacing must be maintained.
+
+## Parasitic extraction and the SPEF Format
+**Parasitic Extraction** is calculation of the parasitic effects in both the designed devices and the required wiring interconnects of an electronic circuit: parasitic capacitances, parasitic resistances and parasitic inductances, commonly called parasitic devices, parasitic components, or simply parasitics. The major purpose of parasitic extraction is to create an accurate analog model of the circuit, so that detailed simulations can emulate actual digital and analog circuit responses. Digital circuit responses are often used to populate databases for signal delay and loading calculation such as: timing analysis; power analysis; circuit simulation; and signal integrity analysis. Analog circuits are often run in detailed test benches to indicate if the extra extracted parasitics will still allow the designed circuit to function.
+<br/>
+
+**SPEF Format**
+Standard Parasitic Exchange Format (SPEF) is an IEEE standard for representing parasitic data of wires in a chip in ASCII format. Non-ideal wires have parasitic resistance and capacitance that are captured by SPEF. These wires also have inductance that is not included in SPEF.
+
+## Labs
+
+
+
 ## Final Steps for RTL2GDS
+# Acknowledgements:
+* Kunal Ghosh, Co-founder (VSD Corp. Pvt. Ltd)
+* Nickson P Jose, Teaching Assistant (VSD Corp. Pvt. Ltd)
