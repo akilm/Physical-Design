@@ -103,13 +103,15 @@ Static Timing Analysis (STA) is one of the techniques to verify design in terms 
 ## Installation Guide
 The details of installation are well documented in the README file of https://github.com/kunalg123/vsdflow. One can install all the tools easily by following all the steps given there instead of going through the hassles of installing each tool individually.</br>
 List of tools installed using vsdflow
-1. Yosys - RTL Synthesis
-2. blifFanout - High fanout net (HFN) synthesis
-3. graywolf - Placement
-4. qrouter - Detailed routing
-5. magic - VLSI Layout tool
-6. netgen - LVS
-7. OpenTimer and OpenSTA - Static timing analysis tool
+|Tool Name | Function |
+|---|---|
+|Yosys | RTL Synthesis|
+|blifFanout | High fanout net (HFN) synthesis|
+|graywolf | Placement|
+|qrouter | Detailed routing|
+|magic  | VLSI Layout tool|
+|netgen  | LVS|
+|OpenTimer and OpenSTA | Static timing analysis tool|
 
  For installing **ngspice** for windows or Mac OS, it is already available as a precompiled version [here](http://ngspice.sourceforge.net/download.html). For installing ngspice in linux environments, [Synaptic package manager](https://geek-university.com/linux/synaptic/) needs to be installed first. ngspice can then be installed using the package manager.
 
