@@ -106,3 +106,48 @@ now the binded physical cells need to be placed inside the core. the placement i
 
 ## Labs
 
+# Day 3
+
+## Cell Design Flow
+As seen earlier, Libraries contain standard cells which are binded to the netlist generated. The libary contains cells with different logic functions, different sizes and different threshold voltages. Apart from this, custom cells can also be created for which the process is mentioned below.
+
+## Inputs or Pre-requisites to the Design Flow
+
+### Process Design Kits (PDKs)
+A process design kit (PDK) is a set of files used within the semiconductor industry to model a fabrication process for the design tools used to design an integrated circuit. The PDK is created by the foundry defining a certain technology variation for their processes. It is then passed to their customers to use in the design process.
+
+### Design rule checking (DRC)
+Design rules are a series of parameters provided by semiconductor manufacturers that enable the designer to verify the correctness of a mask set. Design rules are specific to a particular semiconductor manufacturing process. A design rule set specifies certain geometric and connectivity restrictions to ensure sufficient margins to account for variability in semiconductor manufacturing processes, so as to ensure that most of the parts work correctly.
+
+### Layout Versus Schematic (LVS)
+A successful design rule check (DRC) ensures that the layout conforms to the rules designed/required for faultless fabrication. However, it does not guarantee if it really represents the circuit you desire to fabricate. This is where an LVS check is used. LVS checking software recognizes the drawn shapes of the layout that represent the electrical components of the circuit, as well as the connections between them. This netlist is compared by the "LVS" software against a similar schematic or circuit diagram's netlist.
+
+### SPICE Models
+A SPICE model is a text-description of a circuit component used by the SPICE Simulator to mathematically predict the behavior of that part under varying conditions. The foundry has to provide this model which characterises the performance of NMOS and PMOS devices. behavior refers to the current and voltage equations that accurately model the working of the device. Using SPICE Models is the industry standard way to simulate circuit performance prior to the prototype stage 
+
+### Library and User-Defined specs
+Library and User-Defined Specifications include parameters like Cell-height, Supply-voltage, Metal-layers, Pin locations and the gate length etc.
+
+## Design Steps
+
+### Circuit Design
+The circuit is first designed as a spice netlist in ngspice and the different waveforms are plotted. Using the information from the waveforms, we can tweak our design paramaters such as the transistor width etc, to obtain the required timing parameters. once the spice netlist is done , the next step involved is designing the layout for the netlist.
+### Layout Design
+The layout design is done through Magic layout tool , and it is designed in such a way that the DRC rules are satisfied. Before layout is designed, an intermediate step called stick diagram could help to visualise the rough layout. **stick diagrams** are a means of capturing topography and layer information using simple diagrams. Stick diagrams convey layer information through colour codes (or monochrome encoding). Acts as an interface between symbolic circuit and the actual layout. stick diagrams can be drawn in any order (the order of the inputs), but designing using **Euler's path** results in less congestion and a neat layout. An Euler path, in a graph or multigraph, is a walk through the graph which uses every edge exactly once. The order of the inputs obtained from the Euler's Path is then used to design the layout. 
+### Cell Characterization
+Cell characterization is a process of analyzing a circuit using static and dynamic methods to generate models suitable for chip implementation flows. Cell characterization typically takes cell design extracted as spice circuit and spice technology models. Characterization software like guna from Paripath, analyzes this information to 
+1. acquire or recognize cell’s function,
+2. generates stimulus appropriate to determine characteristic (like delay, transition time etc),
+3. simulates it using circuit simulator,
+4. gather simulations output to measure characteristic and
+5. finally writes this data into a standard like libertyTM, veriog or IBIS.
+To conclude Cell characterization, Softwares like GUNA take the spice model as inputs and create **timing, noise and power** .libs and functions .
+
+## Timing Characterization
+Slew low (Time for 20% of Vdd), Slew high (Time for 80% of Vdd) , Input and Output are also time characterized for both rising and falling transitions. This can be manually done by viewing the waveforms in ngspice and obtaining the difference between the coordinates in the input and output waveforms.
+## Propagation Delay and Transition Time
+Propagation Delay is a measure of time taken by the signal to pass through a gate. It is calculated with the help of parameters like in_rise_thr ,in_fall_thr, out_rise_thr and out_fall_thr. The propagation delay is basically the time difference between the input crossing 50% and the output crossing the 50% point. The propagation delay is expected to be positive and if it comes out to be negative - it means that the transistors are not properly sized or the threshold voltage setting is faulty. This is an important factor in circuit design that must be kept in consideration before designing a logic circuit in spice </br>
+Transistion time is the time needed for a signal to pass from 10% to 90% or from 20% to 80% of its final state. The delay of a cell can be deduced from the standard cell library, it is a function of input transition time and output capacitance load.The input and output slew can be found using ngspice waveforms by locating the 20% and 80% points and subtracting them
+
+
+ 
