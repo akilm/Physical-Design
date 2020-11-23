@@ -197,9 +197,6 @@ Standard Parasitic Exchange Format (SPEF) is an IEEE standard for representing p
 
 ## Labs
 
-
-
-## Final Steps for RTL2GDS
 # Acknowledgements:
 * Kunal Ghosh, Co-founder (VSD Corp. Pvt. Ltd)
 * Nickson P Jose, Teaching Assistant (VSD Corp. Pvt. Ltd)
