@@ -2,7 +2,12 @@
 This Repository contains all the information needed for physical design flow for your IPs or SOCs using qflow and other opensource tools. The Repository was created during the Beginner Physical design using open-source EDA Tools conducted by Kunal Ghosh - [(VLSI System Design)](https://www.vlsisystemdesign.com/).
 
 # Contents
+1. Day 1 : IC Design Components and Terminologies, RISC-V, Physical Design Flow and Open source EDA tools
 
+
+
+
+# Day-1
 # IC Design Components and Terminologies
 **IC** or **Integrated circuit** is basically an electronic circuit consisting of large number of transistors, resistors and capacitors etc inside a single semiconductor chip. They come in a variety of packages and sizes. Some of the commonly used ICs include Timer 555 ic, 741 operational amplifiers, 78xx series of voltage regulators and 74xx series of logic gates.<br/>
 **SOC - System on Chip** is also a type of IC which has the capabilities of a computer built inside the chip. It typically consists of a CPU, memory , input and output ports, analog IPs and other units integrated within itself.SoCs can be applied to any computing task. They are typically used in mobile computing such as tablets, smartphones, smartwatches and netbooks as well as embedded systems.<br/>
@@ -25,7 +30,7 @@ with the advent of an open standard ISA like RISC-V, there are many people who h
 ## Raven (ASIC Flavour)
 It is an ASIC implementation of the PicoSoC-PicoRV32. The core was previously proven with an FPGA implementation and Raven is the first SoC built with it.The system integrator is Tim Edwards, another champion in the open source domain. Raven includes analog IPs like PLLs (Clock Multipliers), ADCs, DACs comparators and some other blocks as well.[Efabless](https://efabless.com/) has successfully bench-tested the Raven at 100MHz, and based on simulations the design should be able to operate at up to 150MHz.  
 
-# Physical Design Flow
+# Physical Design Flow and Open source EDA tools
 A typical back-end flow of chip design is explained in the below section. For each step, different open-source tools were used. Qflow is a complete tool chain for synthesizing digital circuits starting from verilog source and ending in physical layout for a specific target fabrication process.The tool chain is basically a collection of steps ordered in a particular sequence that makes it easier to analyse the design as it propagates through the steps.
 A typical Qflow gui would look like the below picture. The steps are ordered in a sequential-order i.e, they can only be executed one after the other from top to bottom.
 
@@ -61,4 +66,43 @@ List of tools installed using vsdflow
 7. OpenTimer and OpenSTA - Static timing analysis tool
 
  For installing **ngspice** for windows or Mac OS, it is already available as a precompiled version [here](http://ngspice.sourceforge.net/download.html). For installing ngspice in linux environments, [Synaptic package manager](https://geek-university.com/linux/synaptic/) needs to be installed first. ngspice can then be installed using the package manager.
+
+## Lab exercise
+Initialising a sample design - raven spi using qflow 
+
+# Day 2 
+
+# Floorplan
+
+## Defining the width and height of the core
+Consider a netlist consisting of D Flip flops and logic gates. While representing the circuit as a logic diagram, different elements take different shape based on the logic functionality of the element. But in reality, all the logic gates and flipflops are rectangular or square in shape when realised as a physical layout. each of these rectangular or square blocks have a predefined area based on the target technology, in our case it is the osu018 library. The sum of all the areas of these blocks determine the dimensions (width x height) of the chip. <br/>
+
+## Utilization Factor 
+Utilization factor is a measure of the area occupied by the standard cells, macros and other blocks with respect to the total area of the ship. it is synonymous with packing density. Utilization factor is given by the formula (Area occupied by netlist)/(Total area of the core).100% Utilization factor indicates that there is no empty space and the netlist completely fills the core. A utilization factor of 50% means that half of the core is empty and the other half is occupied by the netlist elements
+
+## Floor Planning and Pre-Placed Cells
+Consider a large logic block which has some blocks which are redundant. this large block can be separated into smaller blocks and this is an example of pre-placed cells. Memory, Clock-gating cell, Comparator and Mux are some of the other preplaced cells. The arrangement of these IP's in a chip is referred to as floorplanning. These IP’s/blocks have user-defined locations, and hence are placed in chip before automated placement-and-routing and are called as pre-placed cells. Automated placement and routing tools places the remaining logical cells in the design onto chip
+
+## Noise Margins
+Consider a Complex circuit powered from the source Vdd and GND. During switching operation, the circuit demands switching  current i.e. peak current. Now, due to the presence of Rdd and Ldd, there will be a voltage drop across them and the voltage at Node 'A' would be Vdd' instead of Vdd. If Vdd' goes below the noise margin, due to Rdd and Ldd, the logic '1' at the output of circuit wont be detected as logic '1' at the input of the circuit following this circuit. These are referred to as noise and it is expected that the noise levels be within certain margins, otherwise the output node would go into an undefined state. There are two different noise margins commonly defined.NMl (NOISE MARGIN low) = Vil – Vol. NMh (NOISE MARGIN high) = Voh – Vih. Noise margin is the amount of noise that a CMOS circuit could withstand without compromising the operation of circuit.
+
+## Decoupling Capacitors
+To overcome the problem of Noise margins, pre-placed cells are surrounded by Decoupling capacitors. The decoupling capacitor acts as a charge storage bank and satisfies the current and voltage levels expected at the input terminals of the logic cells. Thus, the problem of voltage drop and noise levels affecting the logic levels are eliminated through the use of Decoupling Capacitors. 
+
+## Power Planning
+Consider a scenario where a driver block drives multiple signals as inputs to a load block. Say all the inputs are switching and there are a lot of nodes which are discharging from Vdd to 0 and charging from 0 to Vdd at the same time. if too many nodes charge from 0 to Vdd using the same source, then Voltage droop phenomenon occurs in which the Vdd dips to a lower value. Similarly, if too many nodes charge from Vdd to 0 using the same source, then Ground bounce phenomenon occurs in which the gnd node moves to a higher value. To avoid this issue, Vdd and gnd(Vss) metal layers form a grid like pattern over the core. Now each node would charge or discharge through different sources and the discrepancies are avoided.
+
+## Pin Placement
+Pins are basically contacts grown between the core and die borders. Clk pins have wider contacts compared to other input/output pins to decrease the resistance in it's path, since Clk is routed throughout the core.
+
+# Placement
+
+## Library 
+The next step involved is binding the netlist with physical cells. A library is a collection of standard cells obtained from the foundry for a particular technology node. Each element of the netlist is mapped to a cell in the library. library consists of cells of the different functionalites like AND , XOR and D FlipFlops etc. In addition to this, it also contains different sizes of the same functional gates - representing higher drive strengths.
+
+## Placement of the library cells
+now the binded physical cells need to be placed inside the core. the placement is determined by the position of the input pins and the frequency of operation of the block as well. Consider a netlist operating at a very high frequency, naturally to preserve the high frequency of operation the cells must be placed very close to each other.other netlists can have regular gaps between them to avoid timing violations. if the distance between the Input/Output pins to the input or output of the netlist is more, then to preserve the signal integrity - buffers/repeaters can be added at even spacings along the path of the netlist. 
+
+
+## Labs
 
