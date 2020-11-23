@@ -3,7 +3,6 @@ This Repository contains all the information needed for physical design flow for
 <br/>
 
 # Table of Contents
----------------------
 1. **Day-1**
     * IC Design Components and Terminologies
     * RISC-V
