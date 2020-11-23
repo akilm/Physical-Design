@@ -387,15 +387,85 @@ alt="alt text"  >
 
 ## Timing modelling using delay tables
 delay tables are tables which represent the delay of a gate as a function of input slew and output capacitance. As discussed before many standards cells of different sizes would be present in the library. to calculate the propagation delay across these cells, the delay table is used. if a value for a particular output load and an input slew is not present in the table, it is usually extrapolated from the nearby values present in the table. A typical delay table looks like the one given below
-
-
+**Delay Table for CBUF'1'**
+|Input Slew\Output Load|10fF|30fF|50fF|70fF|90fF|110fF|
+|---|---|---|---|---|---|---|
+|20ps|x1|x2|x3|x4|x5|x6|
+|40ps|x7|x8|x9|x10|x11|x12|
+|60ps|x13|x14|x15|x16|x17|x18|
+|80ps|x19|x20|x21|x22|x23|x24|
 ## Clock Tree synthesis
 Clock Tree synthesis is the next step after placement. Clock signals cannot be routed in the same way other data signals are routed because all the sequential elements in a particular stage expect the clock edges at the same time, in other words the clock skew should be zero.To achieve this clocks are routed in a h-tree fashion, instead of directly connecting the clk pins to the clk input of the sequential elements. Also at every level of the clock path , the load driven must be same inorder to ensure synchronous working of all the cells. this is maintained by using same type of buffer cells throughout a particular stage.
+<p align="center">
+<img src="https://image.slidesharecdn.com/ctsslidesharepromotion-140403071215-phpapp01/95/vlsi-academy-clock-tree-synthesis-7-638.jpg?cb=1396510272" 
+alt="alt text"  >
+<p/>
+<br/>
 
 ## Timing analysis with real and ideal clocks
 Static timing analysis determines whether there is any setup or hold violations in the circuit. With ideal clocks, the analysis becomes easy, since the clk arrival time is definite and not subject to change. but in real scenarios, clk signals have noise and some uncertainity associated with it due to a variety of factors. Clock shielding can be done to prevent the noise impact on the clk signals.
 
-## Labs
+## Lab Exercises
+### A peek into OSU018 std library 
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%204/std_lib.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%204/std_lib2.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%204/std_lib3.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### Synopsys Design Constraints File (.sdc) Definition (TCL language)
+
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%204/sdcfile.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### Configuration before running STA
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%204/pre_layout_sta.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### OpenSTA 
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%204/sta_launch.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%204/sta_slack.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### After Clock Propagation step
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%204/sta_slack_after_prop.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### Slack Condition Met
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%204/report_checks%20-4.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
 
 # Day 5
 
