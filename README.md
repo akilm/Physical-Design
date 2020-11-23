@@ -477,12 +477,68 @@ Some rules regarding the metal layers need to be followed carefully to avoid DRC
 
 ## Parasitic extraction and the SPEF Format
 **Parasitic Extraction** is calculation of the parasitic effects in both the designed devices and the required wiring interconnects of an electronic circuit: parasitic capacitances, parasitic resistances and parasitic inductances, commonly called parasitic devices, parasitic components, or simply parasitics. The major purpose of parasitic extraction is to create an accurate analog model of the circuit, so that detailed simulations can emulate actual digital and analog circuit responses. Digital circuit responses are often used to populate databases for signal delay and loading calculation such as: timing analysis; power analysis; circuit simulation; and signal integrity analysis. Analog circuits are often run in detailed test benches to indicate if the extra extracted parasitics will still allow the designed circuit to function.
-<br/>
 
 **SPEF Format**
 Standard Parasitic Exchange Format (SPEF) is an IEEE standard for representing parasitic data of wires in a chip in ASCII format. Non-ideal wires have parasitic resistance and capacitance that are captured by SPEF. These wires also have inductance that is not included in SPEF.
 
-## Labs
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%205/SPEF%20Format.png" 
+alt="alt text"  >
+<p/>
+<br/>
+
+## Lab Exercises
+
+### Qflow : Prelayout STA
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%205/STA_prelayout.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### Qflow : Prelayout STA Maximum Frequency
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%205/PrelayoutFrequency.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### Qflow : Prelayout STA Maximum Frequency of operation
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%205/PrelayoutFrequency.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+
+### Qrouter : Routing In-Progress
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%205/routing.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### Qrouter : Routing Complete
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%205/routing_result.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### Qrouter : Post-Layout STA Complete
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%205/routing_result.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+
+### Qrouter : Post-Layout STA Maximum Frequency of operation
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%205/postlayoutfrequency.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
 
 # Acknowledgements:
 * Kunal Ghosh, Co-founder (VSD Corp. Pvt. Ltd)
