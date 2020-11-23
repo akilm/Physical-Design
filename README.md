@@ -6,9 +6,18 @@ This Repository contains all the information needed for physical design flow for
 **IC** or **Integrated circuit** is basically an electronic circuit consisting of large number of transistors, resistors and capacitors etc inside a single semiconductor chip. They come in a variety of packages and sizes. Some of the commonly used ICs include Timer 555 ic, 741 operational amplifiers, 78xx series of voltage regulators and 74xx series of logic gates.<br/>
 **SOC - System on Chip** is also a type of IC which has the capabilities of a computer built inside the chip. It typically consists of a CPU, memory , input and output ports, analog IPs and other units integrated within itself.SoCs can be applied to any computing task. They are typically used in mobile computing such as tablets, smartphones, smartwatches and netbooks as well as embedded systems.<br/>
 **Core** is the section of the chip where the fundamental logic of the design is placed. **Die**   contains the core, it is the small semiconductor material specimen on which the fundamental circuit is fabricated. IC's are fabricated on a single 9 inch or 12 inch diameter silicon wafer, which contains hundreds of mirror images of the fundamental logic. This wafer is then cut into small pieces, each piece has similar functionality of the fundamental logic called Die. **Pad cells** surround the rectangular metal patches where external bonds are made. input,output and power pad cells are commonly used pad cells.
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%201/ic1.PNG" 
+alt="alt text"  >
+<p/>
 
 ## Package Types ##
 Integrated circuits are put into protective packages to allow easy handling and assembly onto printed circuit boards and to protect the devices from damage. A very large number of different types of package exist. Through-hole packages, Surface mount, Chip carrier, Pin grid arrays, Flat packages and ball grid array are some of the most common packages. In this workshop we deal with a variant of Flat package called QFN-48 ( Quad Flat No leads with 48 pins)
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%201/qfn.PNG" 
+alt="alt text"  >
+<p/>
+
 
 ## Foundry IPs and Macros
 PLLs, DAC, ADC and SRAMs come under the category of foundry IP. They have to be manually designed or need some human interference (or intelligence) essentially to define and create them. IPs(Intellectual property) are targeted on a particular technology nodes. Macros are basically digital blocks which are made up of purely digital logic.
@@ -22,12 +31,22 @@ Applications and softwares running in our laptops and PCs are written in a varie
 
 ## PicoRV32 and PicoSOC (FPGA Flavour)
 with the advent of an open standard ISA like RISC-V, there are many people who have created their own microprocessor cores which are documented in the RISC-V github handle found at [RISC-V Cores List](https://github.com/riscv/riscv-cores-list).PicoRV32 is one such implementation of the RISC-V ISA created by clifford wolf. [PicoRV32](https://github.com/cliffordwolf/picorv32) is a CPU core that implements the RISC-V RV32IMC Instruction Set. It can be configured as RV32E, RV32I, RV32IC, RV32IM, or RV32IMC core, and optionally contains a built-in interrupt controller. [PicoSOC](https://github.com/cliffordwolf/picorv32/blob/master/picosoc/picosoc.v) is an example SOC created using PicoRV32. PicoSOC is a type of SOC flavour which is more suited towards **FPGA** implementation and contains a less-detailed description of memory and other Components since these are resources already available inside the FPGA.
+<p align="center">
+<img src="http://opencircuitdesign.com/qflow/giffiles/raven_anno2.png" 
+alt="alt text"  >
+<p/>
 
 ## Raven (ASIC Flavour)
 It is an ASIC implementation of the PicoSoC-PicoRV32. The core was previously proven with an FPGA implementation and Raven is the first SoC built with it.The system integrator is Tim Edwards, another champion in the open source domain. Raven includes analog IPs like PLLs (Clock Multipliers), ADCs, DACs comparators and some other blocks as well.[Efabless](https://efabless.com/) has successfully bench-tested the Raven at 100MHz, and based on simulations the design should be able to operate at up to 150MHz.  
+<p align="center">
+<img src="https://github.com/efabless/raven-picorv32/raw/master/doc/raven_block_diagram.png" 
+alt="alt text"  >
+<p/>
+
+
 
 # Physical Design Flow and Open source EDA tools
-A typical back-end flow of chip design is explained in the below section. For each step, different open-source tools were used. Qflow is a complete tool chain for synthesizing digital circuits starting from verilog source and ending in physical layout for a specific target fabrication process.The tool chain is basically a collection of steps ordered in a particular sequence that makes it easier to analyse the design as it propagates through the steps.
+A typical back-end flow of chip design is explained in the below section. For each step, different open-source tools were used. **Qflow** is a complete tool chain for synthesizing digital circuits starting from verilog source and ending in physical layout for a specific target fabrication process.The tool chain is basically a collection of steps ordered in a particular sequence that makes it easier to analyse the design as it propagates through the steps.
 A typical Qflow gui would look like the below picture. The steps are ordered in a sequential-order i.e, they can only be executed one after the other from top to bottom.
 
 ## Logic Synthesis
@@ -63,9 +82,45 @@ List of tools installed using vsdflow
 
  For installing **ngspice** for windows or Mac OS, it is already available as a precompiled version [here](http://ngspice.sourceforge.net/download.html). For installing ngspice in linux environments, [Synaptic package manager](https://geek-university.com/linux/synaptic/) needs to be installed first. ngspice can then be installed using the package manager.
 
-## Lab exercise
-Initialising a sample design - raven spi using qflow 
-
+## Lab exercises
+**Initialising a sample design - raven spi using qflow** 
+<br/>
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%201/spi_slave_after_route.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%201/graywolf_spi.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%201/spi_tkcon.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+**Preparation and Synthesis of Picorv32**
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%201/qflow1.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%201/qflow2.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%201/qflow3.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%201/Synthesis_log.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
 # Day 2 
 
 # Floorplan
