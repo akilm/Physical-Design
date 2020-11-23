@@ -365,7 +365,7 @@ alt="alt text"  >
 <br/>
 
 ### ngspice switching threshold 
-The switching threshold with pmos width of 0.75u is about 1.07 V as visible from the waveform below
+The switching threshold with pmos width of 0.75u is about 1.17 V as visible from the waveform below
 <p align="center">
 <img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%203/switchingThreshold2.PNG" 
 alt="alt text"  >
