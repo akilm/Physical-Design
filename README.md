@@ -527,7 +527,7 @@ alt="alt text"  >
 
 ### Qrouter : Post-Layout STA Complete
 <p align="center">
-<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%205/routing_result.PNG" 
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%205/routingand%20postlayout.PNG" 
 alt="alt text"  >
 <p/>
 <br/>
