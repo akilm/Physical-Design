@@ -33,14 +33,14 @@ Applications and softwares running in our laptops and PCs are written in a varie
 with the advent of an open standard ISA like RISC-V, there are many people who have created their own microprocessor cores which are documented in the RISC-V github handle found at [RISC-V Cores List](https://github.com/riscv/riscv-cores-list).PicoRV32 is one such implementation of the RISC-V ISA created by clifford wolf. [PicoRV32](https://github.com/cliffordwolf/picorv32) is a CPU core that implements the RISC-V RV32IMC Instruction Set. It can be configured as RV32E, RV32I, RV32IC, RV32IM, or RV32IMC core, and optionally contains a built-in interrupt controller. [PicoSOC](https://github.com/cliffordwolf/picorv32/blob/master/picosoc/picosoc.v) is an example SOC created using PicoRV32. PicoSOC is a type of SOC flavour which is more suited towards **FPGA** implementation and contains a less-detailed description of memory and other Components since these are resources already available inside the FPGA.
 <p align="center">
 <img src="http://opencircuitdesign.com/qflow/giffiles/raven_anno2.png" 
-alt="alt text"  >
+alt="alt text" width = 516 height = 452 >
 <p/>
 
 ## Raven (ASIC Flavour)
 It is an ASIC implementation of the PicoSoC-PicoRV32. The core was previously proven with an FPGA implementation and Raven is the first SoC built with it.The system integrator is Tim Edwards, another champion in the open source domain. Raven includes analog IPs like PLLs (Clock Multipliers), ADCs, DACs comparators and some other blocks as well.[Efabless](https://efabless.com/) has successfully bench-tested the Raven at 100MHz, and based on simulations the design should be able to operate at up to 150MHz.  
 <p align="center">
 <img src="https://github.com/efabless/raven-picorv32/raw/master/doc/raven_block_diagram.png" 
-alt="alt text"  >
+alt="alt text"  width = 450 height = 338 >
 <p/>
 
 
