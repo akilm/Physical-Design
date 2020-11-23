@@ -83,24 +83,28 @@ List of tools installed using vsdflow
  For installing **ngspice** for windows or Mac OS, it is already available as a precompiled version [here](http://ngspice.sourceforge.net/download.html). For installing ngspice in linux environments, [Synaptic package manager](https://geek-university.com/linux/synaptic/) needs to be installed first. ngspice can then be installed using the package manager.
 
 ## Lab exercises
-**Initialising a sample design - raven spi using qflow** 
-<br/>
-<p align="center">
-<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%201/spi_slave_after_route.PNG" 
-alt="alt text"  >
-<p/>
+### Initialising a sample design - raven spi using qflow 
 <br/>
 <p align="center">
 <img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%201/graywolf_spi.PNG" 
 alt="alt text"  >
 <p/>
+
+<br/>
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%201/spi_slave_after_route.PNG" 
+alt="alt text"  >
+<p/>
+
 <br/>
 <p align="center">
 <img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%201/spi_tkcon.PNG" 
 alt="alt text"  >
 <p/>
 <br/>
-**Preparation and Synthesis of Picorv32**
+
+### Preparation and Synthesis of Picorv32 
+
 <p align="center">
 <img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%201/qflow1.PNG" 
 alt="alt text"  >
@@ -121,7 +125,8 @@ alt="alt text"  >
 alt="alt text"  >
 <p/>
 <br/>
-# Day 2 
+
+# Day 2 #
 
 # Floorplan
 
