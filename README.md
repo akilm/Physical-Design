@@ -1,5 +1,36 @@
 # Physical design using open-source EDA Tools
 This Repository contains all the information needed for physical design flow for your IPs or SOCs using qflow and other opensource tools. The Repository was created during the Beginner Physical design using open-source EDA Tools conducted by Kunal Ghosh - [(VLSI System Design)](https://www.vlsisystemdesign.com/).
+<br/>
+
+# Table of Contents
+---------------------
+1. **Day-1**
+    * IC Design Components and Terminologies
+    * RISC-V
+    * Physical Design Flow and Open source EDA tools
+    * Lab Exercises 
+2. **Day-2**
+    * Floorplan
+    * Placement
+    * Cell Design Flow
+    * Lab Exercises 
+3. **Day-3**
+    * ngspice Simulation
+    * Euler's Path and Stick Diagram
+    * Post-Layout extraction and Simulation
+    * CMOS Fabrication Process
+    * Lab Exercises
+4. **Day-4**
+    * Timing modelling using delay tables
+    * Clock Tree synthesis
+    * Timing analysis with real and ideal clocks
+    * Lab Exercises
+5. **Day-5**
+    * Routing
+    * DRC
+    * Parasitic extraction and the SPEF Format
+    * Lab Exercises
+<br/>
 
 # Day-1
 # IC Design Components and Terminologies
@@ -160,7 +191,7 @@ The next step involved is binding the netlist with physical cells. A library is 
 now the binded physical cells need to be placed inside the core. the placement is determined by the position of the input pins and the frequency of operation of the block as well. Consider a netlist operating at a very high frequency, naturally to preserve the high frequency of operation the cells must be placed very close to each other.other netlists can have regular gaps between them to avoid timing violations. if the distance between the Input/Output pins to the input or output of the netlist is more, then to preserve the signal integrity - buffers/repeaters can be added at even spacings along the path of the netlist. 
 
 
-## Cell Design Flow
+# Cell Design Flow
 As seen earlier, Libraries contain standard cells which are binded to the netlist generated. The libary contains cells with different logic functions, different sizes and different threshold voltages. Apart from this, custom cells can also be created for which the process is mentioned below.
 
 ## Inputs or Pre-requisites to the Design Flow
@@ -274,7 +305,7 @@ alt="alt text"  >
 
 # Day 3
 
-## ngspice Inverter Simulation
+## ngspice Simulation
 Inverter model was created as a spice deck and simulations were run on the model.ngspice was used to obtain the transfer characteristics(Input voltage vs Output Voltage) and transient analysis (Input and Output Voltage vs Time). Different delay parameters were calculated using the plots obtained from ngspice. 
 
 ## Euler's Path and Stick Diagram
