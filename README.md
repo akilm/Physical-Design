@@ -8,7 +8,7 @@ This Repository contains all the information needed for physical design flow for
 **Core** is the section of the chip where the fundamental logic of the design is placed. **Die**   contains the core, it is the small semiconductor material specimen on which the fundamental circuit is fabricated. IC's are fabricated on a single 9 inch or 12 inch diameter silicon wafer, which contains hundreds of mirror images of the fundamental logic. This wafer is then cut into small pieces, each piece has similar functionality of the fundamental logic called Die. **Pad cells** surround the rectangular metal patches where external bonds are made. input,output and power pad cells are commonly used pad cells.
 <p align="center">
 <img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%201/ic1.PNG" 
-alt="alt text"  >
+alt="alt text" width = 553 height = 358  >
 <p/>
 
 ## Package Types ##
