@@ -82,7 +82,7 @@ List of tools installed using vsdflow
 
  For installing **ngspice** for windows or Mac OS, it is already available as a precompiled version [here](http://ngspice.sourceforge.net/download.html). For installing ngspice in linux environments, [Synaptic package manager](https://geek-university.com/linux/synaptic/) needs to be installed first. ngspice can then be installed using the package manager.
 
-## Lab exercises
+## Lab Exercises
 ### Initialising a sample design - raven spi using qflow 
 <br/>
 <p align="center">
@@ -197,12 +197,80 @@ To conclude Cell characterization, Softwares like GUNA take the spice model as i
 
 ## Timing Characterization
 Slew low (Time for 20% of Vdd), Slew high (Time for 80% of Vdd) , Input and Output are also time characterized for both rising and falling transitions. This can be manually done by viewing the waveforms in ngspice and obtaining the difference between the coordinates in the input and output waveforms.
+|Timing Threshold Definitions| Percentage of Vdd|
+|--|--|
+|slew_low_rise_thr|20%|
+|slew_high_rise_thr|80%|
+|slew_low_fall_thr|20%|
+|slew_high_fall_thr|80%|
+|in_rise_thr|50%|
+|in_fall_thr|50%|
+|out_rise_thr|50%|
+|out_fall_thr|50%|
 ## Propagation Delay and Transition Time
 Propagation Delay is a measure of time taken by the signal to pass through a gate. It is calculated with the help of parameters like in_rise_thr ,in_fall_thr, out_rise_thr and out_fall_thr. The propagation delay is basically the time difference between the input crossing 50% and the output crossing the 50% point. The propagation delay is expected to be positive and if it comes out to be negative - it means that the transistors are not properly sized or the threshold voltage setting is faulty. This is an important factor in circuit design that must be kept in consideration before designing a logic circuit in spice </br>
 Transistion time is the time needed for a signal to pass from 10% to 90% or from 20% to 80% of its final state. The delay of a cell can be deduced from the standard cell library, it is a function of input transition time and output capacitance load.The input and output slew can be found using ngspice waveforms by locating the 20% and 80% points and subtracting them
 
 
-## Labs
+## Lab Exercises
+### Qflow Placement Settings
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%202/qflow_placement1.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### Qflow un-grouped Pins
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%202/qflow_beforeauto.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### Qflow after Auto-group
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%202/qflow_auto.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### Qflow Create Pin Group
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%202/qflow_grpcreate.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### Qflow after custom group
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%202/qflow_my_pins.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### Placement In-progress
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%202/placement_inprogress.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%202/placement3.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%202/placement4.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### Placement Complete
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%202/placement%20Complete.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
 
 # Day 3
 
