@@ -294,7 +294,94 @@ The layout can be drawn manually through Magic layout tool or can be automated w
 * Steps to form contacts and interconnects(local)
 * Higher level metal formation
 
-## Labs
+
+## Lab Exercises
+### ngspice inverter spice deck
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%203/Spicenetlist.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### ngspice inverter Transfer Characteristics (Vin vs Vout)
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%203/TransferChar.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### ngspice switching threshold
+The switching threshold with pmos width of 0.5u is about 1.07 V as visible from the waveform below
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%203/switchingThreshold.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### ngspice inverter spice deck with increased width 
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%203/ngspice2.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### ngspice inverter Transfer Characteristics (Vin vs Vout) for the updated SPICE deck
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%203/TransferChar2.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### ngspice switching threshold 
+The switching threshold with pmos width of 0.75u is about 1.07 V as visible from the waveform below
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%203/switchingThreshold2.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### ngspice Transient Analysis : SPICE netlist
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%203/Transpice.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### ngspice Transient Analysis : Waveforms
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%203/Tranwaveform.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### magic layout : using tcl script
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%203/layout.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### magic layout : Drawing the inputs and labelling 
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%203/layout2.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### magic layout : Extract post-layout SPICE netlist command
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%203/extractspice.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
+### magic layout : Post-layout spice simulation
+<p align="center">
+<img src="https://github.com/akilm/Physical-Design/blob/main/Images/Day%203/postlayout_spice.PNG" 
+alt="alt text"  >
+<p/>
+<br/>
+
 
 # Day 4
 
